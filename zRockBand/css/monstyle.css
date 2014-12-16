@@ -1,0 +1,49 @@
+#content {
+	width:100%; 
+	margin-left: 25%;
+	position:relative;
+	z-index:1;
+}
+.content
+{
+		
+	margin-top: 10px;
+	margin-left: 25%;;
+}
+.content-padding-1 {padding:18px 0 37px 0}
+.content-padding-2 {padding:23px 0 57px 0}
+.padding-grid-1 {padding: 0 0 0 28px}
+.padding-grid-2 {padding: 0 0 0 29px}
+.padding-grid-3 {padding: 0 0 0 19px}
+.padding-grid-4 {padding:3px 0 0 19px; line-height:24px}
+
+#home
+{
+	margin-top: 10px;
+	margin-left: 25%;
+	width:auto;
+height:290px;
+}
+
+#troops
+{
+	height:290px;
+	margin-left: 25%;
+}
+
+.connexion
+{
+	
+    margin-right: auto;
+    width:300px;
+	float: left;
+	z-index:1;
+}
+.creationcompte
+{
+	margin-left: 250px;
+    margin-right: 25%;
+    width:250px;
+	float: right;
+	z-index:1;
+}
