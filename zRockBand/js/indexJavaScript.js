@@ -67,7 +67,7 @@ $(document).ready(function() {
 			//Ajout evenement CreationCompte
 			$("#btnCreationCompte").click(function () 
 			{	
-				var URLExplorateur = URL + "explorateur";
+				var URLExplorateur = URL + "explorateurs";
 				
 				var explorateur = {};
 						
