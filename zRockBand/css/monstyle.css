@@ -22,12 +22,12 @@
 	margin-top: 10px;
 	margin-left: 25%;
 	width:auto;
-height:290px;
+	height:290px;
 }
 
 #troops
 {
-	height:290px;
+	min-height:290px;
 	margin-left: 25%;
 }
 

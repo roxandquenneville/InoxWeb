@@ -42,23 +42,28 @@ $(document).ready(function() {
 				
 				var explorateur = {};				
 				
-				explorateur.username = $("#usernameConnexion").val();
+				explorateur.utilisateur = $("#usernameConnexion").val();
 				explorateur.password = $("#passwordConnexion").val();	
 				
-				var URLExplorateur = URL + "explorateurs?username=" + explorateur.username +"&password="+ explorateur.password;
+				var URLExplorateur = URL + "explorateurs?utilisateur=" + explorateur.utilisateur +"&password="+ explorateur.password;
 				
 				
 			
 				$.ajax({
+				
 						type:'GET',								
-						url : URLExplorateur,		
+						url : URLExplorateur,	
 						
 						contentType: "application/json",
 						success: function(response) {	
-							
-							localStorage.setItem("Token", response.token);
-							localStorage.setItem("nom", response.user);					
-							window.location.replace("runes.html");
+								localStorage.setItem("Token", response.token);
+								localStorage.setItem("nom", response.user);					
+								window.location.replace("runes.html");
+						},
+						error: function(xhr, ajaxOptions, thrownError)
+						{
+							var err = eval("(" + xhr.responseText + ")");
+							alert(err.message);
 						}
 				});	
 		
@@ -87,11 +92,21 @@ $(document).ready(function() {
 							localStorage.setItem("Token", response.token);
 							localStorage.setItem("nom", response.user);					
 							window.location.replace("runes.html");
+						},
+						error: function(xhr, ajaxOptions, thrownError)
+						{
+							
+							var err = JSON.parse( (xhr.responseText) );
+							
+							if(err.message.code == 'ER_DUP_ENTRY')
+							{
+								alert('Nom d\'utilisateur déjà utilisé');
+							}
+							
+							
 						}
 				});				
 			});		
-	
-		// Fin du IF	
 			
 		}
 		else 
