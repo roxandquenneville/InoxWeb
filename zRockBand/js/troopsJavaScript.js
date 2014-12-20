@@ -41,16 +41,20 @@ $(document).ready(function() {
 									success: function(response)	{
 									
 										$.each(response,function (key,values) {
-										
+											
 											if(key == id)
 											{
-												var URLDetailTroops = URL + response[key].href + '?token='+ localStorage.getItem('Token');
+												var URLDetailTroops =  response[key].href + '?token='+ localStorage.getItem('Token');
 												$.ajax({
 													type:'GET',
 													contentType: "application/json",
+													
 													url : URLDetailTroops,
 													success: function(response)	{
-														$("#troopsTable > tbody > tr:eq(" + id + ")").after( " <td> Attaque : </td><td>" + response[id].attaque + "</td><br> <td> Vitesse : </td><td> "+ response[id].speed +" </td><br> <td> Défense : </td><td>"+ response[id].defence +"</td><br> " ))
+														//var idInt = +id + 1;
+														var tr = "#tr"+id+"";
+														$(tr).append( "  <td align=\"center\"> Attaque : </td><td>" + response.attack + "</td> <td align=\"center\"> Vitesse : </td><td> "+ response.speed +" </td> <td align=\"center\"> Défense : </td><td>"+ response.defense +"</td> ") ;
+														$("#"+id+"").attr("disabled","disabled");
 													}
 												});	
 											}
