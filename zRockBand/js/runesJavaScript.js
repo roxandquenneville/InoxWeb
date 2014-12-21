@@ -20,9 +20,9 @@ $(document).ready(function() {
 							
 						$.each(response,function (key,value){
 							if(key == "fusion")
-									$("#runesTable").append("<tr><td> <img  src=\"images/"+key+".png\"  > </td> <td align=\"center\">"+ key  +" </td><td>"+ value + "</td> </tr>")
+									$("#runesTable").append("<tr><td> <img  src=\"css/images/"+key+".png\"  > </td> <td align=\"center\">"+ key  +" </td><td>"+ value + "</td> </tr>")
 							else
-								$("#runesTable").append("<tr>  <td> <img  src=\"images/"+key+".png\"  >  </td>  <td align=\"center\" >"+ key  +" </td><td>"+ value + "</td><td> <button id=\""+key+"\" >Fusionner</button> </td>  </tr>")
+								$("#runesTable").append("<tr>  <td> <img  src=\"css/images/"+key+".png\"  >  </td>  <td align=\"center\" >"+ key  +" </td><td>"+ value + "</td><td> <button id=\""+key+"\" >Fusionner</button> </td>  </tr>")
 								
 						});
 						
