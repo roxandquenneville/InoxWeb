@@ -23,13 +23,12 @@
 	margin-left: 25%;
 	margin-right: 25%;
 	width:auto;
-	height:290px;
+	height:auto;
 }
 
 #troops
 {
 	min-height:290px;
-	margin-left: 25%;
 }
 
 .connexion
