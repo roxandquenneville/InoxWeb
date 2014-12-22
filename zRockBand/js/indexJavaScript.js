@@ -73,39 +73,50 @@ $(document).ready(function() {
 			$("#btnCreationCompte").click(function () 
 			{	
 				var URLExplorateur = URL + "explorateurs";
-				
 				var explorateur = {};
-						
-				explorateur.nom = $("#name").val();
-				explorateur.utilisateur = $("#username").val();
-				explorateur.password = $("#password").val();
-						
-				var json = JSON.stringify(explorateur);	
+				
+				//vérification du mot de passe identique
+				
+				if($("#confirmationpassword").val() ==$("#password").val())
+				{
+					
+					explorateur.nom = $("#name").val();
+					explorateur.utilisateur = $("#username").val();
+					explorateur.password = $("#password").val();
+							
+					var json = JSON.stringify(explorateur);	
 
-				$.ajax({
-						type:'POST',
-						datatype:'json',
-						url : URLExplorateur,
-						data:json,
-						contentType: "application/json",
-						success: function(response) {	
-							localStorage.setItem("Token", response.token);
-							localStorage.setItem("nom", response.user);					
-							window.location.replace("runes.html");
-						},
-						error: function(xhr, ajaxOptions, thrownError)
-						{
-							
-							var err = JSON.parse( (xhr.responseText) );
-							
-							if(err.message.code == 'ER_DUP_ENTRY')
+					$.ajax({
+							type:'POST',
+							datatype:'json',
+							url : URLExplorateur,
+							data:json,
+							contentType: "application/json",
+							success: function(response) {	
+								localStorage.setItem("Token", response.token);
+								localStorage.setItem("nom", response.user);					
+								window.location.replace("runes.html");
+							},
+							error: function(xhr, ajaxOptions, thrownError)
 							{
-								alert('Nom d\'utilisateur déjà utilisé');
+								
+								var err = JSON.parse( (xhr.responseText) );
+								
+								if(err.message.code == 'ER_DUP_ENTRY')
+								{
+									alert('Nom d\'utilisateur déjà utilisé');
+								}
+								else
+									alert('Problèmes avec le serveur, veuillez réessayer plus tard.');
+								
+								
 							}
-							
-							
-						}
-				});				
+					});	
+				}
+				else
+				{
+					alert("Les mots de passe ne sont pas identiques.");
+				}
 			});		
 			
 		}
