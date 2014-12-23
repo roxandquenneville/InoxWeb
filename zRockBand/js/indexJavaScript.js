@@ -5,7 +5,7 @@ $(document).ready(function() {
 		
 		if(localStorage.getItem("nom") === null )
 		{
-			// S'il y a pas d'utilisateur connecter on affiche la connection et la creation du compte
+			// S'il y a pas d'utilisateur connecter on affiche la connection et la création d'un compte
 			$("#home").append(
 				
 					"<div class=\"connexion\" >" +
@@ -36,7 +36,7 @@ $(document).ready(function() {
 					"	<Button id=\"btnCreationCompte\">Creation</button>" +
 				    "</div>"			
 			);
-			// Ajout evenement du bouton Connexion
+			// Ajout évènement du bouton Connexion
 			$("#btnConnexion").click(function () {
 			
 				
@@ -69,13 +69,13 @@ $(document).ready(function() {
 		
 			});
 			
-			//Ajout evenement CreationCompte
+			//Ajout évènement CreationCompte
 			$("#btnCreationCompte").click(function () 
 			{	
 				var URLExplorateur = URL + "explorateurs";
 				var explorateur = {};
 				
-				//vérification du mot de passe identique
+				//vérification du mot de passe pour voir s'il identique
 				
 				if($("#confirmationpassword").val() ==$("#password").val())
 				{
@@ -123,13 +123,13 @@ $(document).ready(function() {
 		else 
 		{
 		
-			//Utilisateur deja connecter alors on offre la deconnection
+			//Utilisateur déjà connecter alors on offre la déconnection
 			$("#Explorateur").text("Bienvenue, Explorateur " + localStorage.getItem("nom"));
 			
 			$("#home").append ("<br><br> <button id=\"btnDeconnexion\" >Deconnexion</button>");
 			
 			
-			// Ajout evenement deconnexion et on vide la localStorage
+			// Ajout évènement déconnexion et on vide la localStorage
 			$("#btnDeconnexion").click(function (){
 					localStorage.clear()
 					window.location.reload("index.html");

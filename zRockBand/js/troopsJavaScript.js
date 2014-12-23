@@ -62,7 +62,7 @@ $(document).ready(function() {
 						},
 						error: function(xhr, ajaxOptions, thrownError)
 						{
-							// S'il y a unes erreurs on l'affiche (aucune troops)
+							// S'il y a une erreur on l'affiche (aucune troops)
 							var err = JSON.parse( (xhr.responseText) );
 								$("#message").text(err.message)
 								

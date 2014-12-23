@@ -1,5 +1,5 @@
 $(document).ready(function() {	
-			// Déclaration des variable pour la page
+			// Déclaration des variables pour la page
 			var URL = "https://inox-mpariseaucstj.c9.io/";
 			var URLRunesFusion = URL + "inventaires/runes/fusion"
 			URLRunesFusion = URLRunesFusion + "?token="+ localStorage.getItem("Token");
@@ -11,7 +11,7 @@ $(document).ready(function() {
 			}
 			else
 			{
-				// S'il est deja connecter on affiches les runes dynamiquements
+				// S'il est deja connecter on affiche les runes dynamiquement
 				$("#Explorateur").text("Bienvenue, Explorateur " + localStorage.getItem("nom"));
 				URLRunes = URL + "inventaires/runes?token=" + localStorage.getItem("Token");
 				$.ajax({
@@ -28,7 +28,7 @@ $(document).ready(function() {
 								
 						});
 						
-						// Event sur les bouton créer 
+						// Event sur le bouton créer 
 						$("body").delegate("button","click", function (){						
 							var type = this.id;
 							
