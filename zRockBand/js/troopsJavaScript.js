@@ -8,7 +8,7 @@ $(document).ready(function() {
 			}
 			else
 			{
-	
+			
 				$("#Explorateur").text("Bienvenue, Explorateur " + localStorage.getItem("nom"));
 				
 				URLTroops = URL + "inventaires/troops?token=" + localStorage.getItem("Token");

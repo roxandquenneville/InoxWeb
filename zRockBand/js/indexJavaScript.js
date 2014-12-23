@@ -2,9 +2,15 @@ $(document).ready(function() {
 
 	var URL = "https://inox-mpariseaucstj.c9.io/";
 	
+			
+		
 		
 		if(localStorage.getItem("nom") === null )
 		{
+		
+		
+			
+			
 			// S'il y a pas d'utilisateur connecter on affiche la connection et la création d'un compte
 			$("#home").append(
 				
@@ -66,7 +72,9 @@ $(document).ready(function() {
 							alert(err.message);
 						}
 				});	
-		
+			
+				
+				
 			});
 			
 			//Ajout évènement CreationCompte
@@ -138,12 +146,52 @@ $(document).ready(function() {
 			
 		}
 	
+		//Event pour la Touche Entrer, Connexion
+		$('#usernameConnexion').keypress(function(event)
+		{
+			var keycode =  event.which;
+			if(keycode == '13'){
+				 $('#btnConnexion').trigger('click');
+			}
+		});
+		$('#passwordConnexion').keypress(function(event)
+		{
+			var keycode =  event.which;
+			if(keycode == '13'){
+				 $('#btnConnexion').trigger('click');
+			}
+		});
 		
 		
-		
-		
-		
-		
+		//Event pour la Touche Entrer, Creation Compte
+		$('#name').keypress(function(event)
+		{
+			var keycode =  event.which;
+			if(keycode == '13'){
+				 $('#btnCreationCompte').trigger('click');
+			}
+		});
+		$('#username').keypress(function(event)
+		{
+			var keycode =  event.which;
+			if(keycode == '13'){
+				 $('#btnCreationCompte').trigger('click');
+			}
+		});
+		$('#password').keypress(function(event)
+		{
+			var keycode =  event.which;
+			if(keycode == '13'){
+				 $('#btnCreationCompte').trigger('click');
+			}
+		});
+		$('#confirmationpassword').keypress(function(event)
+		{
+			var keycode =  event.which;
+			if(keycode == '13'){
+				 $('#btnCreationCompte').trigger('click');
+			}
+		});
 	
 });
 	
