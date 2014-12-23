@@ -1,8 +1,9 @@
 $(document).ready(function() {	
-		
+			// Déclaration des variable pour la page
 			var URL = "https://inox-mpariseaucstj.c9.io/";
 			var URLRunesFusion = URL + "inventaires/runes/fusion"
 			URLRunesFusion = URLRunesFusion + "?token="+ localStorage.getItem("Token");
+			// Vérifie si l'explorateur est déja connecter
 			if(localStorage.getItem("nom") === null )
 			{
 				$("#Explorateur").text("Vous devez vous connecter pour voir vos runes.");
@@ -10,6 +11,7 @@ $(document).ready(function() {
 			}
 			else
 			{
+				// S'il est deja connecter on affiches les runes dynamiquements
 				$("#Explorateur").text("Bienvenue, Explorateur " + localStorage.getItem("nom"));
 				URLRunes = URL + "inventaires/runes?token=" + localStorage.getItem("Token");
 				$.ajax({
@@ -17,7 +19,7 @@ $(document).ready(function() {
 					url : URLRunes,						
 					contentType: "application/json",
 					success: function(response) {	
-							
+						// Boucle dans les runes 
 						$.each(response,function (key,value){
 							if(key == "fusion")
 									$("#runesTable").append("<tr><td> <img  src=\"css/images/"+key+".png\"  > </td> <td align=\"center\">"+ key  +" </td><td>"+ value + "</td> </tr>")
@@ -26,7 +28,7 @@ $(document).ready(function() {
 								
 						});
 						
-						
+						// Event sur les bouton créer 
 						$("body").delegate("button","click", function (){						
 							var type = this.id;
 							
@@ -35,7 +37,7 @@ $(document).ready(function() {
 							var json = JSON.stringify(RuneFusion);
 							
 							
-							
+							// Requete pour la fusion
 							$.ajax({
 								type:'patch',
 								url : URLRunesFusion,

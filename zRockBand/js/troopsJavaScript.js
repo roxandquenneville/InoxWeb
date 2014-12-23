@@ -18,7 +18,7 @@ $(document).ready(function() {
 					contentType: "application/json",
 					url : URLTroops,
 					success: function(response) {	
-											
+							// Boucle au travers des troops				
 							$.each(response,function (key, values){
 											
 								$("#troopsTable").append("<tr id=\"tr"+key +"\" ><td> <img src=\""+response[key].imageUrl+"\" height=50 width=50  > Troops # "+(key+1) +" :     </td><td> "+  response[key].name +" <br><br> </br>   "+ "</td> <td> <button id=\""+key+"\" class=\"troopsDetail\" >Détails</button> </td> </tr></br>")
@@ -62,7 +62,7 @@ $(document).ready(function() {
 						},
 						error: function(xhr, ajaxOptions, thrownError)
 						{
-							
+							// S'il y a unes erreurs on l'affiche (aucune troops)
 							var err = JSON.parse( (xhr.responseText) );
 								$("#message").text(err.message)
 								
